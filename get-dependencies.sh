@@ -1,20 +1,17 @@
 #!/bin/sh
 
 set -ex
-ARCH="$(uname -m)"
+EXTRA_PACKAGES="https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/get-debloated-pkgs.sh"
 
 echo "Installing dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
-	alsa-lib           \
 	base-devel         \
 	cmake              \
 	curl               \
 	gcc-libs           \
 	git                \
-	glibc              \
 	gtk3               \
-	hicolor-icon-theme \
 	libao              \
 	libdecor           \
 	libpulse           \
@@ -22,7 +19,6 @@ pacman -Syu --noconfirm \
 	libx11             \
 	libxrandr          \
 	libxss             \
-	mesa               \
 	ninja              \
 	openal             \
 	pipewire-audio     \
@@ -39,24 +35,12 @@ pacman -Syu --noconfirm \
 	zlib               \
 	zsync
 
-case "$ARCH" in
-	'x86_64')  PKG_TYPE='x86_64.pkg.tar.zst';;
-	'aarch64') PKG_TYPE='aarch64.pkg.tar.xz';;
-	''|*) echo "Unknown arch: $ARCH"; exit 1;;
-esac
 
-LLVM_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/llvm-libs-mini-$PKG_TYPE"
-LIBXML_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/libxml2-iculess-$PKG_TYPE"
-OPUS_URL="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/opus-nano-$PKG_TYPE"
-
-echo "Installing debloated pckages..."
+echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-wget --retry-connrefused --tries=30 "$LLVM_URL" -O   ./llvm-libs.pkg.tar.zst
-wget --retry-connrefused --tries=30 "$LIBXML_URL" -O ./libxml2.pkg.tar.zst
-wget --retry-connrefused --tries=30 "$OPUS_URL" -O   ./opus-nano.pkg.tar.zst
-
-pacman -U --noconfirm ./*.pkg.tar.zst
-rm -f ./*.pkg.tar.zst
+wget --retry-connrefused --tries=30 "$EXTRA_PACKAGES" -O ./get-debloated-pkgs.sh
+chmod +x ./get-debloated-pkgs.sh
+./get-debloated-pkgs.sh --add-opengl gtk3-mini opus-mini libxml2-mini
 
 # Make librashader
 echo "Making extra dependencies..."
