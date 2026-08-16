@@ -1,6 +1,6 @@
 <div align="center">
 
-# ares-AppImage 🐧
+# ares-emu-AppImage 🐧
 
 [![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/ares-emu-appimage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/ares-emu-appimage/releases/latest)
 [![CI Build Status](https://github.com/pkgforge-dev/ares-emu-appimage/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/ares-emu-appimage/releases/latest)
