@@ -12,7 +12,7 @@
 
 | Latest Stable Release | Latest Nightly Release | Upstream URL |
 | :---: | :---: | :---: |
-| [Click here](https://github.com/pkgforge-dev/ares-emu-appimage/releases/latest) | [Click here](https://github.com/pkgforge-dev/ares-emu-appimage/releases/tag/nightly) | [Click here](https://ares-emu.net/) |
+| [Click here](https://github.com/pkgforge-dev/ares-emu-appimage/releases/latest) | [Click here](https://github.com/pkgforge-dev/ares-emu-appimage/releases/tag/nightly) | [Click here](https://github.com/ares-emulator/ares) |
 
 </div>
 
